@@ -28,7 +28,8 @@ export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 export HADOOP_PREFIX=$HADOOP_HOME
 export HIVE_HOME=/home/ubuntu/hive
-export PATH=$HIVE_HOME/bin:$PATH'>> ~/.bashrc
+export PATH=$HIVE_HOME/bin:$PATH
+export HIVE_CONF_DIR=$HIVE_HOME/conf'>> ~/.bashrc
 
 source ~/.bashrc
 
