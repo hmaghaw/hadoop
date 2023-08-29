@@ -31,7 +31,9 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 export HADOOP_PREFIX=$HADOOP_HOME
 export HIVE_HOME=/home/ubuntu/hive
 export PATH=$HIVE_HOME/bin:$PATH
-export HIVE_CONF_DIR=$HIVE_HOME/conf'>> ~/.bashrc
+export HIVE_CONF_DIR=$HIVE_HOME/conf
+export SPARK_HOME=/opt/spark
+export PATH=$PATH:$SPARK_HOME/bin'>> ~/.bashrc
 
 source ~/.bashrc
 
@@ -117,6 +119,7 @@ schematool -dbType derby -initSchema
 #####################################################################################
 #                                 Install Spark                                     #
 #####################################################################################
+cd ~
 wget https://dlcdn.apache.org/spark/spark-3.4.0/spark-3.4.0-bin-hadoop3.tgz
 tar xvf spark-3.4.0-bin-hadoop3.tgz
-sudo mv spark-3.4.0-bin-had oop3 /opt/spark
+sudo mv spark-3.4.0-bin-hadoop3 /opt/spark
