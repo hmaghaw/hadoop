@@ -8,7 +8,9 @@ ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 640 ~/.ssh/authorized_keys
 
-#Install Hadoop
+#####################################################################################
+#                                Install Hadoop                                     #
+#####################################################################################
 wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz
 tar xzf hadoop-3.3.4.tar.gz
 mv hadoop-3.3.4 hadoop
@@ -83,8 +85,9 @@ hdfs namenode -format
 
 #Start Hadoop Server
 start-all.sh
-
-# Install Hive
+#####################################################################################
+#                                  Install Hive                                     #
+#####################################################################################
 wget https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz
 tar xzf apache-hive-3.1.3-bin.tar.gz
 mv apache-hive-3.1.3-bin hive
@@ -102,7 +105,7 @@ echo export HADOOP_HOME=$HADOOP_HOME >> hive-env.sh
 hdfs dfs -mkdir /tmp
 hdfs dfs -mkdir /user
 hdfs dfs -mkdir /user/hive
-hdfs dfs -mkdir /user/hive
+
 hdfs dfs -mkdir /user/hive/warehouse
 
 $HADOOP_HOME/bin/hadoop fs -chmod g+w /user/hive/warehouse
@@ -110,3 +113,10 @@ $HADOOP_HOME/bin/hadoop fs -chmod g+w /tmp
 
 cd $HIVE_HOME/bin
 schematool -dbType derby -initSchema
+
+#####################################################################################
+#                                 Install Spark                                     #
+#####################################################################################
+wget https://dlcdn.apache.org/spark/spark-3.4.0/spark-3.4.0-bin-hadoop3.tgz
+tar xvf spark-3.4.0-bin-hadoop3.tgz
+sudo mv spark-3.4.0-bin-had oop3 /opt/spark
